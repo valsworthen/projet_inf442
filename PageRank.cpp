@@ -1,14 +1,16 @@
 #include <iostream>
+#include <vector>
 
-int ** reduction(int ** mat, double alpha){
+int ** reduction(std::vector<std::vector<double> > mat, double alpha){
+  using namespace std;
   //construction de la matrice e
-  int* e= new int *(mat.size());
+  vector<int> e;
   for(int i=0; i< mat.size(); i++)
     e[i]=1;
   //initialisation de Q comme matrice
-  int **Q = new int **[mat.size()];
+  vector<vector <int> > Q;
   for(int i=0; i< mat.size(); i++)
-    Q[i] = new int*[mat.size()];
+    Q.push_back(vector<int>());
   //remplissage de Q + construction de d --> fonction
   int * d=new int*[mat.size()];
   for(int i =0; i< mat.size(); i++){
